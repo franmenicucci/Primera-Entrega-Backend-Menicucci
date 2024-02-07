@@ -1,0 +1,58 @@
+[
+    {
+      "id": 1,
+      "title": "Teléfono inteligente",
+      "description": "Teléfono inteligente de última generación con pantalla OLED y cámara de alta resolución.",
+      "code": "PHN001",
+      "price": 799.99,
+      "status": true,
+      "stock": 100,
+      "category": "Electrónica",
+      "thumbnails": ["ruta/imagen1.jpg", "ruta/imagen2.jpg"]
+    },
+    {
+      "id": 2,
+      "title": "Portátil",
+      "description": "Portátil ultradelgado y ligero con procesador de alta velocidad y batería de larga duración.",
+      "code": "LPT002",
+      "price": 1299.99,
+      "status": true,
+      "stock": 50,
+      "category": "Informática",
+      "thumbnails": ["ruta/imagen3.jpg"]
+    },
+    {
+      "id": 3,
+      "title": "Zapatillas deportivas",
+      "description": "Zapatillas deportivas cómodas y elegantes para correr y entrenar.",
+      "code": "ZPT003",
+      "price": 59.99,
+      "status": true,
+      "stock": 200,
+      "category": "Deportes",
+      "thumbnails": ["ruta/imagen4.jpg", "ruta/imagen5.jpg"]
+    },
+    {
+      "id": 4,
+      "title": "Smartwatch",
+      "description": "Reloj inteligente con seguimiento de actividad, monitorización del sueño y pantalla táctil.",
+      "code": "SWT004",
+      "price": 199.99,
+      "status": true,
+      "stock": 150,
+      "category": "Electrónica",
+      "thumbnails": ["ruta/imagen6.jpg"]
+    },
+    {
+      "id": 5,
+      "title": "Cámara digital",
+      "description": "Cámara digital compacta con sensor de alta resolución y capacidad de grabación en 4K.",
+      "code": "CMD005",
+      "price": 499.99,
+      "status": true,
+      "stock": 80,
+      "category": "Electrónica",
+      "thumbnails": ["ruta/imagen7.jpg", "ruta/imagen8.jpg"]
+    }
+  ]
+  
