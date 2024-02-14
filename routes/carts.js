@@ -41,7 +41,7 @@ router.get('/:cid', (req, res) => {
 });
 
 router.post('/:cid/product/:pid', (req, res) => {
-  const cid = req.params.cid;
+  const cid = parseInt(req.params.cid); // Convertir el ID del carrito a número
   const pid = req.params.pid;
   fs.readFile(carritoFilePath, 'utf8', (err, data) => {
     if (err) {
@@ -49,7 +49,7 @@ router.post('/:cid/product/:pid', (req, res) => {
       return;
     }
     const carritos = JSON.parse(data);
-    const carrito = carritos.find(c => c.id == cid);
+    const carrito = carritos.find(c => c.id === cid); // Usar === para comparar los IDs
     if (!carrito) {
       res.status(404).json({ error: 'Carrito no encontrado' });
       return;
@@ -71,5 +71,6 @@ router.post('/:cid/product/:pid', (req, res) => {
     });
   });
 });
+
 
 module.exports = router;

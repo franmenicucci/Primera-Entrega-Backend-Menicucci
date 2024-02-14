@@ -15,7 +15,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:pid', (req, res) => {
-  const pid = req.params.pid;
+  const pid = parseInt(req.params.pid); // Convertir el ID a número (1)
+  if (isNaN(pid)) {
+    res.status(400).json({ error: 'ID de producto no válido' });
+    return;
+  }
+
   fs.readFile(productosFilePath, 'utf8', (err, data) => {
     if (err) {
       res.status(500).json({ error: 'Error interno del servidor' });
@@ -33,8 +38,9 @@ router.get('/:pid', (req, res) => {
 
 router.post('/', (req, res) => {
   const nuevoProducto = req.body;
-  if (!nuevoProducto.title || !nuevoProducto.description || !nuevoProducto.code || !nuevoProducto.price || !nuevoProducto.stock || !nuevoProducto.category) {
-    res.status(400).json({ error: 'Todos los campos son obligatorios' });
+  // Validar el tipo de datos y la presencia de los campos requeridos
+  if (typeof nuevoProducto.title !== 'string' || typeof nuevoProducto.description !== 'string' || typeof nuevoProducto.code !== 'string' || typeof nuevoProducto.price !== 'number' || typeof nuevoProducto.stock !== 'number' || typeof nuevoProducto.category !== 'string') {
+    res.status(400).json({ error: 'Los campos del producto son inválidos o faltan' });
     return;
   }
   fs.readFile(productosFilePath, 'utf8', (err, data) => {
@@ -57,7 +63,12 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:pid', (req, res) => {
-  const pid = req.params.pid;
+  const pid = parseInt(req.params.pid); // Convertir el ID a número (2)
+  if (isNaN(pid)) {
+    res.status(400).json({ error: 'ID de producto no válido' });
+    return;
+  }
+
   const productoActualizado = req.body;
   fs.readFile(productosFilePath, 'utf8', (err, data) => {
     if (err) {
@@ -84,7 +95,12 @@ router.put('/:pid', (req, res) => {
 });
 
 router.delete('/:pid', (req, res) => {
-  const pid = req.params.pid;
+  const pid = parseInt(req.params.pid); // Convertir el ID a número (3)
+  if (isNaN(pid)) {
+    res.status(400).json({ error: 'ID de producto no válido' });
+    return;
+  }
+
   fs.readFile(productosFilePath, 'utf8', (err, data) => {
     if (err) {
       res.status(500).json({ error: 'Error interno del servidor' });
